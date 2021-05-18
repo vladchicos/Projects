@@ -39,8 +39,6 @@ for i=1:n
                 corect = corect + 1;
         else
                 gresit = gresit + 1;
-                softmax(x(i,:)*w)
-                ENC
         end
 end
 toc
