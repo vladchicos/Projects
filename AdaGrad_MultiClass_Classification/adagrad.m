@@ -1,6 +1,7 @@
 M = csvread('wifi_localization.txt');
 tic
 n = 2000; %nr de date
+classes = 4;
 epoch = n;
 it = 1;
 eta = 0.5;
@@ -8,7 +9,8 @@ x = M(:,1:7);
 %ponderi w
 w = repmat([0.1 0.1 0.1 0.1],7,1);
 pos =1;
-
+G = zeros(4);
+xi = repmat(1e-2,4,1);
 while(it < 11*epoch) %nr optim de epoci
         %label encodat
         ENC = getENC(pos);
@@ -37,6 +39,8 @@ for i=1:n
                 corect = corect + 1;
         else
                 gresit = gresit + 1;
+                softmax(x(i,:)*w)
+                ENC
         end
 end
 toc
